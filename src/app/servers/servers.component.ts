@@ -11,6 +11,10 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = "No server was created.";
   serverName = 'test';
   serverCreated = false;
+  servers = ['TestServer', 'TestServer2'];
+  displayDetails = false;
+  numberOfClicks = 0;
+  clicks = [];
 
   constructor() {
     setTimeout(() => {
@@ -24,10 +28,17 @@ export class ServersComponent implements OnInit {
   onCreateServer() {
     this.serverCreationStatus = "Server was created. Name is " + this.serverName + ".";
     this.serverCreated = true;
+    this.servers.push(this.serverName);
   }
 
-  onUpdateServerName(event: any) {
-    this.serverName = (<HTMLInputElement>event.target).value;
+  toggleDisplay(){
+    this.displayDetails = !this.displayDetails;
+    this.numberOfClicks++;
+    this.clicks.push(this.numberOfClicks);
+  }
+
+  getBackgroundColor(click) {
+    if(click > 4) return "dodgerblue"
   }
 
 }
