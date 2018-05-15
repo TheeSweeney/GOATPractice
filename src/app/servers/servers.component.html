@@ -11,17 +11,5 @@
   Add Server
 </button>
 <p>{{ serverCreationStatus }}</p>
-<label>Username</label>
-<input 
-  type="text" 
-  class="form-control"
-  [(ngModel)]="username">
-<p>{{ username }}</p>
-<button 
-  class="btn btn-primary"
-  [disabled]="username == '' ? true : false"
-  (click)="onResetUsername()">
-  Reset Username
-</button>
 <app-server></app-server>
 <app-server></app-server>
